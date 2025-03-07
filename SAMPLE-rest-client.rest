@@ -1,5 +1,98 @@
-https://example.com/comments/1
+@OMBD_API_KEY=23
+@OMBD_URL=http://www.omdbapi.com/?apikey={{OMBD_API_KEY}}
+### Get movie data from OMDb API
+GET {{OMBD_URL}}&t=Inception
+User-Agent: rest-client
+Content-Type: application/json
 
+
+### Search for a meal on The MealDB
+GET https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
+Content-Type: application/json
+
+
+### Get a random user
+GET https://randomuser.me/api/
+Content-Type: application/json
+
+
+
+
+### Example POST request
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+{
+  "title": "My New Post",
+  "body": "This is the content of my post.",
+  "userId": 1
+}
+
+
+### RemoteOK jobs board endpoint
+GET https://remoteok.io/api 
+
+### searchapi.io/google
+GET https://www.searchapi.io/api/v1/search
+
+
+# Sample HTTP requests using vscode rest-client extension
+# Lines with ### serves as a marker for the extension to insert
+# links to send requests
+
+### A simple GET Request
+# Get list of sites supported by stackexchange APIs
+GET https://api.stackexchange.com/2.2/sites
+
+### Get list of tags by site
+GET https://api.stackexchange.com/2.2/tags?site=stackoverflow
+
+### Get details of a particular tag
+# Query parameters specified one per line.
+GET https://api.stackexchange.com/2.2/tags/vscode-extensions/info
+    ?site=stackoverflow
+
+### Name the request (using @name) and refer to it in a different request
+# @name tagsearch
+GET https://api.stackexchange.com/2.2/tags?site=askubuntu
+
+### Access values from a request or response in another request
+# The general syntax is
+# <request-name>.<request|response>.<body|headers>.<path>
+# For JSON response, JSONPath syntax (https://goessner.net/articles/JsonPath/)
+# is used.
+GET https://api.stackexchange.com/2.2/tags/{{tagsearch.response.body.$.items[0].name}}/info?site=askubuntu
+#Authorization: Basic base64-user-password
+
+### Supports different authentication options
+# Body can be specified separately from the request
+POST  https://example.com/posts
+Authorization: Basic username:password
+
+{
+    "id": 1,
+    "title": "My awesome post",
+    "timestamp": 1504932105
+}
+
+
+#### Example POST
+POST  https://example.com
+
+
+### Another example showing POST request, this
+# time with a file level variable
+@test_server = dummy.restapiexample.com
+POST http://{{test_server}}/api/v1/create
+Content-Type: application/json
+
+{
+    "name":"Joe",
+    "salary":"123456789",
+    "age":"23",
+}
+
+
+### Make a comment
 POST https://example.com/comments HTTP/1.1
 content-type: application/json
 

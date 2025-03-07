@@ -12,7 +12,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    // Enable source maps for better debugging
     "sourceMap": true,
     "plugins": [
       {
@@ -22,14 +21,13 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    /* Linting */
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    "useDefineForClassFields": true // Needed for classes in ES2022 & later
+    "useDefineForClassFields": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
