@@ -1,0 +1,26 @@
+{
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 80,
+  "rest-client.environmentVariables": {
+    "local": {
+      "APP_ID": "dummy",
+      "APP_KEY": "dummy",
+      "URL": "https://api.adzuna.com/v1/api/jobs/us"
+    },
+    "local-test": {
+      "APP_ID": "dummy",
+      "APP_KEY": "dummy",
+      "URL": "http://localhost:3001/test-api"
+    },
+    "staging": {
+      "APP_ID": "dummy",
+      "APP_KEY": "dummy",
+      "URL": "https://api.adzuna.com/v1/api/jobs/us"
+    },
+    "production": {
+      "APP_ID": "dummy",
+      "APP_KEY": "dummy",
+      "URL": "https://api.adzuna.com/v1/api/jobs/us"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+#ADZUNA_APP_ID, ADZUNA_APP_KEY, and ADZUNA_URL are environment variables that are stored in the .vscode/settings => rest-client.environmentVariables 
+
+# To choose the environment ("local", "production", "local-test", "staging") on
+#  which we want to test requests: 
+# Command Palette (Ctrl+Shift+P) ==> "Rest Client: Switch Environment", 
+# and then selecting the environment you want from the dropdown list.
+
+@API_CREDS=app_id={{ADZUNA_APP_ID}}&app_key={{ADZUNA_APP_KEY}}
+
+# parameters
+@PAGE_NUM=1
+@RESULTS_PER_PAGE=results_per_page=3
+@MAX_DAYS_OLD=max_days_old=21
+
+@COUNTY=Santa Clara County
+@CITY=San Jose
+# @LOCATION=location0=US&location1=California&location2={{COUNTY}}
+@LOCATION=location0=US&location1=California&location2={{COUNTY}}&location3={{CITY}}
+
+@SEARCH_TERMS=title_only=Engineer
+@SEARCH_TERMS=title_only=Developer
+@CATEGORY=category=it-jobs
+# @CATEGORY=category=engineering-jobs
+@EXCLUDE_TERMS=what_exclude=intern internship mechanical manufacturing electrical machining thermal optics
+
+@SORT=sort_by=date
+
+@SEARCH={{SEARCH_TERMS}}&{{EXCLUDE_TERMS}}&{{CATEGORY}}&{{SORT}}
+
+
+###############################################
+
+### Get Multiple Jobs that match geography & search terms
+GET {{ADZUNA_URL}}/search/{{PAGE_NUM}}
+  ?{{API_CREDS}}
+  &{{LOCATION}}
+  &{{SEARCH}}
+  &{{MAX_DAYS_OLD}}
+  &{{RESULTS_PER_PAGE}}
+
+
+
+### Get names of job categories. This query is good for testing, because it  ### does not consume too many of our allotted API calls from AdZuna
+GET {{ADZUNA_URL}}/categories?{{API_CREDS}}
+
