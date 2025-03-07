@@ -1,9 +1,15 @@
+// This file is a bastardized travesty.  It's a combo of the new
+// "eslint.config.mjs" approach and the deprecated-style '.eslintrc'
+// structure.  This is because the eslint.config.next is based on the
+// eslintrc style and uis using the FlatCompat conversion stuff that
+// is not very good.
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { FlatCompat } from '@eslint/eslintrc'
-// import globals from 'globals'
+import tseslint from '@typescript-eslint/eslint-plugin'
+import tsparser from '@typescript-eslint/parser'
 import eslintPluginPrettier from 'eslint-plugin-prettier'
-import prettierConfig from './prettier.config.mjs'
+import configPrettier from 'eslint-config-prettier'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -18,11 +24,30 @@ const eslintConfig = [
   ...compat.extends('next/core-web-vitals', 'next/typescript', 'prettier'),
   {
     files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
+    languageOptions: {
+      parser: tsparser, // ✅ Use TypeScript parser
+      parserOptions: {
+        project: './tsconfig.json', // ✅ Point to TypeScript config
+        tsconfigRootDir: process.cwd(),
+      },
+    },
     plugins: {
-      eslintPluginPrettier,
+      '@typescript-eslint': tseslint,
+      prettier: eslintPluginPrettier,
     },
     rules: {
-      'prettier/prettier': ['error', prettierConfig, { usePrettierrc: false }],
+      ...configPrettier.rules,
+      'prettier/prettier': [
+        'error',
+        {
+          singleQuote: true,
+          semi: false,
+          trailingComma: 'es5',
+          printWidth: 80,
+          tabWidth: 2,
+        },
+      ],
+
       'no-console': 'warn',
       '@typescript-eslint/consistent-type-imports': 'warn',
       '@typescript-eslint/no-unused-vars': [
@@ -30,7 +55,7 @@ const eslintConfig = [
         { argsIgnorePattern: '^_' },
       ],
       '@typescript-eslint/no-unused-expressions': 'warn',
-      '@typescript-eslint/switch-exhaustiveness-check': 'warn',
+      '@typescript-eslint/switch-exhaustiveness-check': 'error',
       'object-shorthand': 'error',
       '@typescript-eslint/method-signature-style': 'error',
       '@typescript-eslint/no-floating-promises': 'error',
@@ -54,6 +79,7 @@ const eslintConfig = [
       // ...reactHooksPlugin.configs.recommended.rules,
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
+      'prettier/prettier': 'error',
     },
   },
 ]
