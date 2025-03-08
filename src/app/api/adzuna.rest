@@ -1,4 +1,5 @@
-#ADZUNA_APP_ID, ADZUNA_APP_KEY, and ADZUNA_URL are environment variables that are stored in the .vscode/settings => rest-client.environmentVariables 
+#ADZUNA_APP_ID, & ADZUNA_APP_KEY, are environment variables that are stored in the .vscode/settings => rest-client.environmentVariables 
+@AZUNA_URL=https://api.adzuna.com/v1/api/jobs/us
 
 # To choose the environment ("local", "production", "local-test", "staging") on
 #  which we want to test requests: 
@@ -43,3 +44,6 @@ GET {{ADZUNA_URL}}/search/{{PAGE_NUM}}
 ### Get names of job categories. This query is good for testing, because it  ### does not consume too many of our allotted API calls from AdZuna
 GET {{ADZUNA_URL}}/categories?{{API_CREDS}}
 
+curl --request GET \
+  --url 'https://api.adzuna.com/v1/api/jobs/us/categories?app_id="'"$ADZUNA_APP_ID"'"&app_key="'"$ADZUNA_APP_KEY"'"' \
+  --header 'Content-Type: application/json'
