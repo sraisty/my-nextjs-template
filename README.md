@@ -65,11 +65,11 @@ The following technologies were used to develop and deploy this application:
 
 ### Development & Testing
 
-- **Build Tools**: [Vite](https://vite.dev/guide/)
+- **Build Tools**: [Vite](https://vite.dev/guide/), [Webpack](https://webpack.js.org/)
 - **Testing**: [Vitest](https://vitest.dev/), [Jest](https://jestjs.io/docs/getting-started), [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - **Code Quality**: [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)
 - **Package Management**: [npm](https://docs.npmjs.com/)
-- **Runtime Management**: [ASDF](https://asdf-vm.com/)
+- **Runtime Version Management**: [ASDF](https://asdf-vm.com/)
 - **Monorepo Management**:  [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces)
 
 ### Data Sources
