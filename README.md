@@ -37,8 +37,12 @@ AI was employed as a collaborative tool, similar to consulting with a peer who w
 
 If you are hiring a Senior Fullstack Engineer or Senior Frontend Engineer, please check out my [LinkedIn profile](https://www.linkedin.com/in/sueraisty/) and get in touch. I am considering in-person opportunities in Silicon Valley as well as remote positions.
 
+My name is Sue Raisty. I have many years of product management experience, but then became a full-stack developer 6 years ago.  So, if you want a product-minded engineer who understands the business-side as well as the technical, I'm your person.
+
 
 ## Technology Stack
+
+The following technologies were used to develop and deploy this application:
 
 ### Core Technologies
 
@@ -46,7 +50,7 @@ If you are hiring a Senior Fullstack Engineer or Senior Frontend Engineer, pleas
 - **Framework**: [Next.js v15](https://nextjs.org)
 - **Backend**: [Express](https://expressjs.org), [Node.js 22](https://nodejs.org/docs/latest/api/)
 - **Database**: [PostgreSQL](https://www.postgresql.org/)
-- **API Approaches**: REST API, GraphQL API
+- **API Approaches**: [REST API](https://www.restapitutorial.com/introduction/resourcenaming), [GraphQL API](https://graphql.org/)
 
 ### Key Libraries
 
@@ -75,15 +79,15 @@ If you are hiring a Senior Fullstack Engineer or Senior Frontend Engineer, pleas
 
 - Node.js v22 or later
 - Git
-- [direnv](https://direnv.net/) (optional, for step 3)
+- [direnv](https://direnv.net/) (optional, to use an `.envrc` file in step 3)
 
 ### Installation
 
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/yourusername/job-listing-aggregator.git
-   cd job-listing-aggregator
+   git clone https://github.com/sraisty/<APPNAME TBP>.git
+   cd <app-name>
    ```
 
 2. Install dependencies
@@ -101,7 +105,7 @@ If you are hiring a Senior Fullstack Engineer or Senior Frontend Engineer, pleas
      export ADZUNA_APP_ID="your_app_id"
      export ADZUNA_APP_KEY="your_app_key"
      
-     # Option 2: Use direnv with a .envrc file (recommended, git-ignored)
+     # Option 2: Use direnv with a <project-root>/.envrc file (recommended, git-ignored)
      echo 'export ADZUNA_APP_ID="your_app_id"' > .envrc
      echo 'export ADZUNA_APP_KEY="your_app_key"' >> .envrc
      direnv allow
@@ -125,26 +129,19 @@ If you are hiring a Senior Fullstack Engineer or Senior Frontend Engineer, pleas
    - Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
 
-
-
 ## Deployment
 
-You can see a live version of this application running at [https://sueraisty.com/job-listings]( https://sueraisty.com/job-listings)
-This application was deployed to [Vercel](https://vercel.com) with minimal configuration:
+You can see a live version of this application running at [https://sueraisty.com/XXXXX](https://sueraisty.com/XXXX).
 
-1. Push your code to a GitHub repository
-2. Import the project into Vercel
-3. Configure environment variables
-4. Deploy
-
-For more detailed deployment instructions, refer to the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
+This application was deployed to [Vercel](https://vercel.com). For more detailed deployment instructions, refer to the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
 
 ## Future Enhancements
 
 - User accounts and saved job listings
-- Email notifications for new matching jobs
+- Email notifications
 - Advanced filtering options
 - Mobile application
+- Data Insights (charts & graphs)
 
 ## Resources
 
