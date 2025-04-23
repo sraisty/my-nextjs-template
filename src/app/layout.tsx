@@ -1,7 +1,9 @@
 // Global layout (i.e. - page header, footer, main area, toolbars, sidebars, etc)
 
-import type { Metadata } from 'next'
+import type {Metadata} from 'next'
 import '../styles/globals.css'
+// import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
+import {ReactQueryProvider} from '@/lib/ReactQueryProvider'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ReactQueryProvider>{children}</ReactQueryProvider>
+      </body>
     </html>
   )
 }
