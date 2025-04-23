@@ -3,9 +3,9 @@
 // structure.  This is because the eslint.config.next is based on the
 // eslintrc style and uis using the FlatCompat conversion stuff that
 // is not very good.
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
-import { FlatCompat } from '@eslint/eslintrc'
+import {dirname} from 'path'
+import {fileURLToPath} from 'url'
+import {FlatCompat} from '@eslint/eslintrc'
 import tseslint from '@typescript-eslint/eslint-plugin'
 import tsparser from '@typescript-eslint/parser'
 import eslintPluginPrettier from 'eslint-plugin-prettier'
@@ -50,10 +50,7 @@ const eslintConfig = [
 
       'no-console': 'warn',
       '@typescript-eslint/consistent-type-imports': 'warn',
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        { argsIgnorePattern: '^_' },
-      ],
+      '@typescript-eslint/no-unused-vars': ['warn', {argsIgnorePattern: '^_'}],
       '@typescript-eslint/no-unused-expressions': 'warn',
       '@typescript-eslint/switch-exhaustiveness-check': 'error',
       'object-shorthand': 'error',
@@ -67,6 +64,8 @@ const eslintConfig = [
           },
         },
       ],
+      '@typescript-eslint/no-unsafe-return': 'off',
+
       // 'jest/no-disabled-tests': 'warn',
       // 'jest/no-focused-tests': 'error',
       // 'jest/no-identical-title': 'error',
